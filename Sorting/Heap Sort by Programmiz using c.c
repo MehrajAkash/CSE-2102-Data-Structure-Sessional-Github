@@ -1,6 +1,6 @@
 // Heap Sort in C
 
-  #include <stdio.h>
+  #include<stdio.h>
 
   // Function to swap the the position of two elements
   void swap(int *a, int *b) {
