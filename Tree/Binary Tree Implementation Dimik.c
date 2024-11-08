@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 typedef struct node Node;
 
 struct node{
@@ -29,6 +30,46 @@ void add_right_child(Node *node, Node *child){
     node->right = child;
 }
 
+void preOrder(Node *node){
+
+    printf("%d ",node->data);
+
+    if(node->left != NULL){
+        preOrder(node->left);
+    }
+
+    if(node->right != NULL){
+        preOrder(node->right);
+    }
+
+}
+
+void postOrder(Node *node){
+
+    if(node->left != NULL){
+        postOrder(node->left);
+    }
+
+    if(node->right != NULL){
+        postOrder(node->right);
+    }
+
+    printf("%d ",node->data);
+}
+
+void inOrder(Node *node){
+
+    if(node->left != NULL){
+        inOrder(node->left);
+    }
+
+    printf("%d ",node->data);
+
+    if(node->right != NULL){
+        inOrder(node->right);
+    }
+}
+
 Node *create_tree()
 {
     Node *two = create_node(2);
@@ -46,44 +87,19 @@ Node *create_tree()
 }
 
 
-// Inorder traversal
-void inorderTraversal(struct node* root) {
-  if (root == NULL) return;
-
-  inorderTraversal(root->left);
-  printf("%d ->",root->data);
-  inorderTraversal(root->right);
-}
-
-// Preorder traversal
-void preorderTraversal(struct node* root) {
-  if (root == NULL) return;
-
-  printf("%d ->", root->data);
-  preorderTraversal(root->left);
-  preorderTraversal(root->right);
-}
-
-// Postorder traversal
-void postorderTraversal(struct node* root) {
-  if (root == NULL) return;
-
-  postorderTraversal(root->left);
-  postorderTraversal(root->right);
-  printf("%d ->", root->data);
-}
 
 int main(){
     Node *root = create_tree();
 
-      printf("Inorder traversal \n");
-      inorderTraversal(root);
+    printf("PreOrder traversal: ");
+    preOrder(root);
 
-      printf("\nPreorder traversal \n");
-      preorderTraversal(root);
+    printf("\nPostOrder traversal: ");
+    postOrder(root);
 
-      printf("\nPostorder traversal \n");
-      postorderTraversal(root);
+     printf("\ninOrder traversal: ");
+    inOrder(root);
+
 
     return 0;
 }
