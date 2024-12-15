@@ -4,12 +4,15 @@ using namespace std;
 vector<int> radixSort(vector<int>& inputArray){
 
       int isz = inputArray.size();
+      int MaxV;
+      for(int i=0;i<isz; i++) MaxV = max(MaxV, inputArray[i]);
+
     vector<int> outputArray(isz);
     outputArray = inputArray;
 
     int div=1;
 
-    for(int j=0; j<3; j++){
+    for(int j=1; MaxV/j > 0; j=j*10 ){
 
         vector<int>tempArray = outputArray;
         vector<int> countArray(10, 0);
