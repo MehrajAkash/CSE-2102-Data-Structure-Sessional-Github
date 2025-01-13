@@ -6,12 +6,6 @@ void print(int arr[],int n){
         cout<<arr[i]<<" ";
 }
 
-void swap(int *p,int *q){
-    int temp = *p;
-        *p = *q;
-        *q = temp;
-}
-
 int partition(int arr[],int l,int h){
     int pivot=arr[l];
     int i=l,j=h;
@@ -25,23 +19,23 @@ int partition(int arr[],int l,int h){
         }
         if(i<j)
         {
-            swap(&arr[i],&arr[j]);
+            swap(arr[i], arr[j]);
         }
     }
-    swap(&arr[l],&arr[j]);
+    swap(arr[l], arr[j]);
 
     return j;
 }
 
 
 void quicksort(int arr[],int l,int h){
-    if(l<h){
+    if(l>=h) return;
+
        int j=partition(arr,l,h);
         quicksort(arr,l,j-1);
         quicksort(arr,j+1,h);
-    }
-}
 
+}
 
 int main(){
 int arr[]={9,4,3,11,15,20,2,24,30,1,35};
