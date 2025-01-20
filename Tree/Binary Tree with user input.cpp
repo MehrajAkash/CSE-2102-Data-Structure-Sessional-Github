@@ -36,7 +36,7 @@ struct treeNode* create(){
     return newNode;
 };
 
-void inOrderTraversal(struct treeNode* temp){
+void inOrderTraversal( treeNode* temp ){
     if(temp == nullptr) return;
 
     inOrderTraversal(temp->left);
@@ -44,7 +44,7 @@ void inOrderTraversal(struct treeNode* temp){
     inOrderTraversal(temp->right);
 }
 
-void preOrderTraversal(struct treeNode* temp){
+void preOrderTraversal( treeNode* temp ){
     if(temp == nullptr) return;
 
       cout<< temp->data <<" ";
