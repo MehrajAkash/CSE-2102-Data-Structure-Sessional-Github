@@ -53,6 +53,17 @@ struct node *maxValue(struct node *root){
     return temp;
 };
 
+int height(node *root ){
+    if(root == nullptr)
+        return -1;
+
+    int lh = height(root->left);
+
+    int rh = height(root->right);
+
+    return max(lh, rh)+1;
+}
+
 int main(){
 
     struct node *root = NULL;
@@ -60,10 +71,10 @@ int main(){
     root = insertt(root, 3);
      root = insertt(root, 1);
     root = insertt(root, 6);
-     root = insertt(root, 7);
+    /// root = insertt(root, 7);
     root = insertt(root, 10);
      root = insertt(root, 14);
-    root = insertt(root, 4);
+    ///root = insertt(root, 4);
 
    cout<<"Inorder traversal: ";
    inorderTra(root);
@@ -71,6 +82,8 @@ int main(){
    cout<<"\n Minimum value of BST: "<< minValue(root)->key <<endl;
 
     cout<<" Maximum value of BST: "<< maxValue(root)->key <<endl;
+
+    cout<<"Max height: " << height(root) <<endl;
 
 return 0;
 }
