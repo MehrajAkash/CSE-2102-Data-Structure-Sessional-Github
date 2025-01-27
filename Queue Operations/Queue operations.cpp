@@ -32,7 +32,7 @@ void deQueue() {
   }
 }
 
-// Function to print the queue
+
 void display() {
   if (rear == -1)
     printf("\nQueue is Empty!!!");
@@ -47,7 +47,7 @@ void display() {
 
 
 int main() {
-  //deQueue is not possible on empty queue
+
   deQueue();
 
   //enQueue 5 elements
@@ -62,10 +62,10 @@ int main() {
 
   display();
 
-  //deQueue removes element entered first i.e. 1
+
   deQueue();
 
-  //Now we have just 4 elements
+
   display();
 
   return 0;
